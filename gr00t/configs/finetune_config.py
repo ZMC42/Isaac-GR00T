@@ -1,5 +1,6 @@
 # Finetune config used for single node post-training.
 from dataclasses import dataclass
+from typing import Literal
 
 from gr00t.data.embodiment_tags import EmbodimentTag
 
@@ -34,6 +35,12 @@ class FinetuneConfig:
     # --- Model Tuning Flags ---
     tune_llm: bool = False
     """If True, fine-tune the language model (LLM) backbone during training."""
+
+    tune_top_llm_layers: int = 4
+    """Number of top LLM layers to tune independently of tune_llm; use 0 to freeze all."""
+
+    model_dtype: Literal["float32", "bfloat16"] = "float32"
+    """Model loading dtype. BF16 reduces memory for local smoke training."""
 
     tune_visual: bool = False
     """If True, fine-tune the visual encoder (e.g., ViT or CNN backbone)."""

@@ -81,7 +81,11 @@ class Gr00tN1d6ActionHead(nn.Module):
         # State noise parameters
         self.state_additive_noise_scale = config.state_additive_noise_scale
 
-        self.beta_dist = Beta(config.noise_beta_alpha, config.noise_beta_beta)
+        # Keep CPU Beta sampling in FP32 when loading BF16 weights.
+        self.beta_dist = Beta(
+            torch.tensor(config.noise_beta_alpha, dtype=torch.float32),
+            torch.tensor(config.noise_beta_beta, dtype=torch.float32),
+        )
         self.num_timestep_buckets = config.num_timestep_buckets
         self.set_trainable_parameters(
             config.tune_projector, config.tune_diffusion_model, config.tune_vlln
