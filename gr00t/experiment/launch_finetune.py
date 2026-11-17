@@ -57,6 +57,7 @@ if __name__ == "__main__":
     config.model.tune_llm = ft_config.tune_llm
     config.model.tune_top_llm_layers = ft_config.tune_top_llm_layers
     config.model.model_dtype = ft_config.model_dtype
+    config.model.backbone_attn_implementation = ft_config.backbone_attn_implementation
     config.model.tune_visual = ft_config.tune_visual
     config.model.tune_projector = ft_config.tune_projector
     config.model.tune_diffusion_model = ft_config.tune_diffusion_model

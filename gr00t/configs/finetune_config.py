@@ -39,6 +39,9 @@ class FinetuneConfig:
     tune_top_llm_layers: int = 4
     """Number of top LLM layers to tune independently of tune_llm; use 0 to freeze all."""
 
+    backbone_attn_implementation: Literal["flash_attention_2", "sdpa"] = "flash_attention_2"
+    """Explicit vision and language attention implementation for SFT."""
+
     model_dtype: Literal["float32", "bfloat16"] = "float32"
     """Model loading dtype. BF16 reduces memory for local smoke training."""
 

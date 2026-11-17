@@ -70,6 +70,7 @@ class Gr00tN1d6Pipeline(ModelPipeline):
                 self.config.training.start_from_checkpoint,
                 tune_llm=self.config.model.tune_llm,
                 tune_top_llm_layers=self.config.model.tune_top_llm_layers,
+                backbone_attn_implementation=self.config.model.backbone_attn_implementation,
                 torch_dtype=getattr(torch, self.config.model.model_dtype),
                 tune_visual=self.config.model.tune_visual,
                 tune_projector=self.config.model.tune_projector,

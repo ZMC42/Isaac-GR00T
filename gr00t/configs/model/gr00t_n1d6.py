@@ -27,7 +27,8 @@ class Gr00tN1d6Config(PretrainedConfig):
     tune_visual: bool = False
     select_layer: int = 16
     reproject_vision: bool = False
-    use_flash_attention: bool = True
+    use_flash_attention: bool = True  # Legacy field; loading uses the explicit setting below.
+    backbone_attn_implementation: str = "sdpa"
     load_bf16: bool = True  # Enable BF16 loading
     collator_overwrite_image_inputs: bool = False  # Deprecated; use eagle_collator.
     eagle_collator: bool = (

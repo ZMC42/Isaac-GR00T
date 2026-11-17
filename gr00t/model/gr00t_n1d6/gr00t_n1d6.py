@@ -448,7 +448,7 @@ class Gr00tN1d6(PreTrainedModel):
             tune_visual=config.tune_visual,
             select_layer=config.select_layer,
             reproject_vision=config.reproject_vision,
-            use_flash_attention=config.use_flash_attention,
+            attn_implementation=config.backbone_attn_implementation,
             load_bf16=config.load_bf16,
             tune_top_llm_layers=config.tune_top_llm_layers,
             trainable_params_fp32=config.backbone_trainable_params_fp32,

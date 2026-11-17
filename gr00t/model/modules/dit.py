@@ -3,6 +3,7 @@ from typing import Optional
 from diffusers import ConfigMixin, ModelMixin
 from diffusers.configuration_utils import register_to_config
 from diffusers.models.attention import Attention, FeedForward
+from diffusers.models.attention_processor import AttnProcessor2_0
 from diffusers.models.embeddings import SinusoidalPositionalEmbedding, TimestepEmbedding, Timesteps
 import torch
 from torch import nn
@@ -111,6 +112,7 @@ class BasicTransformerBlock(nn.Module):
             cross_attention_dim=cross_attention_dim,
             upcast_attention=upcast_attention,
             out_bias=attention_out_bias,
+            processor=AttnProcessor2_0(),
         )
 
         # 3. Feed-forward
